@@ -8,20 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		4448187A23327DC100F813EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4448187923327DC100F813EB /* AppDelegate.swift */; };
-		4448187C23327DC100F813EB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4448187B23327DC100F813EB /* ViewController.swift */; };
+		4448187C23327DC100F813EB /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4448187B23327DC100F813EB /* MapVC.swift */; };
 		4448187F23327DC200F813EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4448187D23327DC200F813EB /* Main.storyboard */; };
 		4448188123327DC700F813EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4448188023327DC700F813EB /* Assets.xcassets */; };
 		4448188423327DC700F813EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4448188223327DC700F813EB /* LaunchScreen.storyboard */; };
+		68AB92CF469D736D1AD0F723 /* Pods_MapIt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9951AB80C9E81C813CEDCE16 /* Pods_MapIt.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1C57A735DDAA9DA30FB58CD3 /* Pods-MapIt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapIt.release.xcconfig"; path = "Pods/Target Support Files/Pods-MapIt/Pods-MapIt.release.xcconfig"; sourceTree = "<group>"; };
 		4448187623327DC100F813EB /* MapIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4448187923327DC100F813EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4448187B23327DC100F813EB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4448187B23327DC100F813EB /* MapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
 		4448187E23327DC200F813EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4448188023327DC700F813EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4448188323327DC700F813EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4448188523327DC700F813EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		495487E4C84E65AA4FF78D18 /* Pods-MapIt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapIt.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MapIt/Pods-MapIt.debug.xcconfig"; sourceTree = "<group>"; };
+		9951AB80C9E81C813CEDCE16 /* Pods_MapIt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MapIt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +33,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68AB92CF469D736D1AD0F723 /* Pods_MapIt.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3EC72F5523BAC1972D2C18B2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9951AB80C9E81C813CEDCE16 /* Pods_MapIt.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		4448186D23327DC100F813EB = {
 			isa = PBXGroup;
 			children = (
 				4448187823327DC100F813EB /* MapIt */,
 				4448187723327DC100F813EB /* Products */,
+				C9F0152DA0F2F2EA6E55EDB0 /* Pods */,
+				3EC72F5523BAC1972D2C18B2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +69,63 @@
 		4448187823327DC100F813EB /* MapIt */ = {
 			isa = PBXGroup;
 			children = (
+				4448188E23327DEB00F813EB /* Model */,
+				4448188D23327DE700F813EB /* View */,
+				4448188C23327DE200F813EB /* Controller */,
+				4448189023327E1400F813EB /* Utillities */,
+				4448188F23327E0600F813EB /* Extensions */,
 				4448187923327DC100F813EB /* AppDelegate.swift */,
-				4448187B23327DC100F813EB /* ViewController.swift */,
 				4448187D23327DC200F813EB /* Main.storyboard */,
 				4448188023327DC700F813EB /* Assets.xcassets */,
 				4448188223327DC700F813EB /* LaunchScreen.storyboard */,
 				4448188523327DC700F813EB /* Info.plist */,
 			);
 			path = MapIt;
+			sourceTree = "<group>";
+		};
+		4448188C23327DE200F813EB /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4448187B23327DC100F813EB /* MapVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		4448188D23327DE700F813EB /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4448188E23327DEB00F813EB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4448188F23327E0600F813EB /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		4448189023327E1400F813EB /* Utillities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utillities;
+			sourceTree = "<group>";
+		};
+		C9F0152DA0F2F2EA6E55EDB0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				495487E4C84E65AA4FF78D18 /* Pods-MapIt.debug.xcconfig */,
+				1C57A735DDAA9DA30FB58CD3 /* Pods-MapIt.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +135,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4448188823327DC700F813EB /* Build configuration list for PBXNativeTarget "MapIt" */;
 			buildPhases = (
+				66D16927A05815D976F64242 /* [CP] Check Pods Manifest.lock */,
 				4448187223327DC100F813EB /* Sources */,
 				4448187323327DC100F813EB /* Frameworks */,
 				4448187423327DC100F813EB /* Resources */,
+				BFADCBACBBE789438DE3D07E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -130,12 +196,53 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		66D16927A05815D976F64242 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MapIt-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BFADCBACBBE789438DE3D07E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MapIt/Pods-MapIt-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MapIt/Pods-MapIt-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4448187223327DC100F813EB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4448187C23327DC100F813EB /* ViewController.swift in Sources */,
+				4448187C23327DC100F813EB /* MapVC.swift in Sources */,
 				4448187A23327DC100F813EB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -280,6 +387,7 @@
 		};
 		4448188923327DC700F813EB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 495487E4C84E65AA4FF78D18 /* Pods-MapIt.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -292,12 +400,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.nazarDev.MapIt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		4448188A23327DC700F813EB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1C57A735DDAA9DA30FB58CD3 /* Pods-MapIt.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -310,7 +419,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.nazarDev.MapIt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
