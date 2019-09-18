@@ -12,6 +12,7 @@
 		4448187F23327DC200F813EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4448187D23327DC200F813EB /* Main.storyboard */; };
 		4448188123327DC700F813EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4448188023327DC700F813EB /* Assets.xcassets */; };
 		4448188423327DC700F813EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4448188223327DC700F813EB /* LaunchScreen.storyboard */; };
+		44F7024B2332A14600A4F28C /* DropablePin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44F7024A2332A14600A4F28C /* DropablePin.swift */; };
 		68AB92CF469D736D1AD0F723 /* Pods_MapIt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9951AB80C9E81C813CEDCE16 /* Pods_MapIt.framework */; };
 /* End PBXBuildFile section */
 
@@ -24,6 +25,7 @@
 		4448188023327DC700F813EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4448188323327DC700F813EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4448188523327DC700F813EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		44F7024A2332A14600A4F28C /* DropablePin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropablePin.swift; sourceTree = "<group>"; };
 		495487E4C84E65AA4FF78D18 /* Pods-MapIt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MapIt.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MapIt/Pods-MapIt.debug.xcconfig"; sourceTree = "<group>"; };
 		9951AB80C9E81C813CEDCE16 /* Pods_MapIt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MapIt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -94,6 +96,7 @@
 		4448188D23327DE700F813EB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				44F7024A2332A14600A4F28C /* DropablePin.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -243,6 +246,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4448187C23327DC100F813EB /* MapVC.swift in Sources */,
+				44F7024B2332A14600A4F28C /* DropablePin.swift in Sources */,
 				4448187A23327DC100F813EB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
