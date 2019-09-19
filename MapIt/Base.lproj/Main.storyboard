@@ -75,9 +75,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="bottomView" destination="cXE-Ly-qkf" id="d80-Da-Uej"/>
                         <outlet property="mapView" destination="XL3-Uw-2yO" id="ykq-Xa-SlH"/>
                         <outlet property="mapViewBottomConstraint" destination="yLe-GE-6p1" id="dGe-2Z-s7I"/>
+                        <outlet property="pullUpView" destination="cXE-Ly-qkf" id="d80-Da-Uej"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
