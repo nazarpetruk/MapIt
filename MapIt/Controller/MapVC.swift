@@ -49,7 +49,7 @@ class MapVC: UIViewController, UIGestureRecognizerDelegate {
         collectionView?.dataSource = self
         
         pullUpView.addSubview(collectionView!)
-        collectionView?.backgroundColor = #colorLiteral(red: 0.7487667203, green: 0.1050025895, blue: 0.001123019727, alpha: 1)
+        collectionView?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
     }
     func addDoubleTap(){
         let doubleTap = UITapGestureRecognizer(target: self, action: #selector(dropPin(sender:)))
@@ -124,7 +124,6 @@ class MapVC: UIViewController, UIGestureRecognizerDelegate {
         }
     }
     func retriveImages(handler: @escaping(_ finishedDown: Bool) -> ()) {
-        imageArray = []
         for url in imageUrlArray{
             Alamofire.request(url).responseImage { (response) in
                 guard let image = response.result.value else { return }
@@ -171,6 +170,10 @@ class MapVC: UIViewController, UIGestureRecognizerDelegate {
         addSpinner()
         addProgressLbl()
         
+        imageArray = []
+        imageUrlArray = []
+        collectionView?.reloadData()
+        
         let touchPoint = sender.location(in: mapView)
         let touchCoordinate = mapView.convert(touchPoint, toCoordinateFrom: mapView)
         let annotation = DroppablePin(coordinate: touchCoordinate, identifier: "droppablePin")
@@ -183,7 +186,7 @@ class MapVC: UIViewController, UIGestureRecognizerDelegate {
                     if finished{
                         self.removeSpinner()
                         self.removeProgressLbl()
-                        //reload collection view
+                        self.collectionView?.reloadData()
                     }
                 })
             }
@@ -209,13 +212,15 @@ class MapVC: UIViewController, UIGestureRecognizerDelegate {
 }
 extension MapVC: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        //.count nmb from array
-        return 4
+        return imageArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "photoCell", for: indexPath) as? PhotoCell
-        return cell!
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "photoCell", for: indexPath) as? PhotoCell else { return UICollectionViewCell() }
+        let imageFromIndex = imageArray[indexPath.row]
+        let imageView = UIImageView(image: imageFromIndex)
+        cell.addSubview(imageView)
+        return cell
     }
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
