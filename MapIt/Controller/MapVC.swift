@@ -9,6 +9,8 @@
 import UIKit
 import MapKit
 import CoreLocation
+import Alamofire
+import AlamofireImage
 
 class MapVC: UIViewController, UIGestureRecognizerDelegate {
     //MARK: IBOutlets
@@ -27,6 +29,8 @@ class MapVC: UIViewController, UIGestureRecognizerDelegate {
     var progressLbl: UILabel?
     var collectionView: UICollectionView?
     var flowLayout = UICollectionViewFlowLayout()
+    
+    var imageUrlArray = [String]()
     
     
     override func viewDidLoad() {
@@ -104,6 +108,20 @@ class MapVC: UIViewController, UIGestureRecognizerDelegate {
             centerMapOnUserLocation()
         }
     }
+    func retriveUrl(forAnnotation annotation: DroppablePin, handler: @escaping (_ status : Bool) -> ()){
+        imageUrlArray = []
+        Alamofire.request(flickerUrl(forApiKey: apiKey, withAnnotation: annotation, numberOfPhotos: 40)).responseJSON { (response) in
+            guard let json = response.result.value as? Dictionary<String, AnyObject> else { return }
+            let photosDictionary = json["photos"] as! Dictionary<String, AnyObject>
+            let photoDictonaryArray = photosDictionary["photo"] as! [Dictionary<String, AnyObject>]
+            for photo in photoDictonaryArray{
+                let postUrl = "https://farm\(photo["farm"]!).staticflickr.com/\(photo["server"]!)/\(photo["id"]!)_\(photo["secret"]!)_z_d.jpg"
+                self.imageUrlArray.append(postUrl)
+            }
+            handler(true)
+        }
+        
+    }
     
 }
 //MARK: Extentions
@@ -137,6 +155,9 @@ class MapVC: UIViewController, UIGestureRecognizerDelegate {
         mapView.addAnnotation(annotation)
         let coordinateRegion = MKCoordinateRegion(center: touchCoordinate, latitudinalMeters: regionRadius * 2, longitudinalMeters: regionRadius * 2)
         mapView.setRegion(coordinateRegion, animated: true)
+        retriveUrl(forAnnotation: annotation) { (true) in
+            print(self.imageUrlArray)
+        }
     }
     func removePin(){
         for annotation in mapView.annotations{
