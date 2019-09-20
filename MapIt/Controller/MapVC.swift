@@ -31,6 +31,7 @@ class MapVC: UIViewController, UIGestureRecognizerDelegate {
     var flowLayout = UICollectionViewFlowLayout()
     
     var imageUrlArray = [String]()
+    var imageArray = [UIImage]()
     
     
     override func viewDidLoad() {
@@ -62,6 +63,7 @@ class MapVC: UIViewController, UIGestureRecognizerDelegate {
         pullUpView.addGestureRecognizer(swipe)
     }
     @objc func animateViewDown(){
+        cancelAllSesions()
         mapViewBottomConstraint.constant = 0
         UIView.animate(withDuration: 0.3) {
             self.view.layoutIfNeeded()
@@ -89,7 +91,7 @@ class MapVC: UIViewController, UIGestureRecognizerDelegate {
     func addProgressLbl(){
         progressLbl = UILabel()
         progressLbl?.frame = CGRect(x: screenSize.width / 2 - 120, y: 175, width: 250, height: 40)
-        progressLbl?.font = UIFont(name: "Avenir Next", size: 18)
+        progressLbl?.font = UIFont(name: "Avenir Next", size: 15)
         progressLbl?.textColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
         progressLbl?.textAlignment = .center
         
@@ -120,7 +122,26 @@ class MapVC: UIViewController, UIGestureRecognizerDelegate {
             }
             handler(true)
         }
-        
+    }
+    func retriveImages(handler: @escaping(_ finishedDown: Bool) -> ()) {
+        imageArray = []
+        for url in imageUrlArray{
+            Alamofire.request(url).responseImage { (response) in
+                guard let image = response.result.value else { return }
+                self.imageArray.append(image)
+                self.progressLbl?.text = "\(self.imageArray.count)/40 IMAGES DOWNLOADED"
+                
+                if self.imageArray.count == self.imageUrlArray.count{
+                    handler(true)
+                }
+            }
+        }
+    }
+    func cancelAllSesions(){
+        Alamofire.SessionManager.default.session.getTasksWithCompletionHandler { (sessionDataTask, upLoadData, downLoadData) in
+            sessionDataTask.forEach({ $0.cancel() })
+            downLoadData.forEach({ $0.cancel() })
+        }
     }
     
 }
@@ -144,6 +165,7 @@ class MapVC: UIViewController, UIGestureRecognizerDelegate {
         removePin()
         removeSpinner()
         removeProgressLbl()
+        cancelAllSesions()
         animateViewUp()
         addSwipe()
         addSpinner()
@@ -155,8 +177,16 @@ class MapVC: UIViewController, UIGestureRecognizerDelegate {
         mapView.addAnnotation(annotation)
         let coordinateRegion = MKCoordinateRegion(center: touchCoordinate, latitudinalMeters: regionRadius * 2, longitudinalMeters: regionRadius * 2)
         mapView.setRegion(coordinateRegion, animated: true)
-        retriveUrl(forAnnotation: annotation) { (true) in
-            print(self.imageUrlArray)
+        retriveUrl(forAnnotation: annotation) { (finished) in
+            if finished {
+                self.retriveImages(handler: { (finished) in
+                    if finished{
+                        self.removeSpinner()
+                        self.removeProgressLbl()
+                        //reload collection view
+                    }
+                })
+            }
         }
     }
     func removePin(){
