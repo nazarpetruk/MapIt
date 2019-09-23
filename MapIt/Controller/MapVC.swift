@@ -50,6 +50,7 @@ class MapVC: UIViewController, UIGestureRecognizerDelegate {
         
         pullUpView.addSubview(collectionView!)
         collectionView?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        registerForPreviewing(with: self, sourceView: collectionView!)
     }
     func addDoubleTap(){
         let doubleTap = UITapGestureRecognizer(target: self, action: #selector(dropPin(sender:)))
@@ -219,7 +220,10 @@ extension MapVC: UICollectionViewDelegate, UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "photoCell", for: indexPath) as? PhotoCell else { return UICollectionViewCell() }
         let imageFromIndex = imageArray[indexPath.row]
         let imageView = UIImageView(image: imageFromIndex)
+//        cell.layer.borderColor = #colorLiteral(red: 0.9647058824, green: 0.6509803922, blue: 0.137254902, alpha: 1)
+//        cell.layer.borderWidth = 1
         cell.addSubview(imageView)
+    
         return cell
     }
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -230,5 +234,22 @@ extension MapVC: UICollectionViewDelegate, UICollectionViewDataSource {
         popVC.initData(forImage: imageArray[indexPath.row])
         present(popVC, animated: true, completion: nil)
     }
+    
+}
+extension MapVC: UIViewControllerPreviewingDelegate{
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        guard let indexPath = collectionView?.indexPathForItem(at: location), let cell = collectionView?.cellForItem(at: indexPath) else { return nil }
+        guard let popVC  = storyboard?.instantiateViewController(withIdentifier: "PopVC") as? PopVC else { return nil }
+        popVC.initData(forImage: imageArray[indexPath.row])
+        previewingContext.sourceRect = cell.contentView.frame
+        return popVC
+    }
+    
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+        show(viewControllerToCommit
+            , sender: self)
+    }
+    
+    
 }
 
