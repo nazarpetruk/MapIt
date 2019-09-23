@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -25,7 +23,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Double Tap for a pin" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vnk-3U-beD">
-                                        <rect key="frame" x="118.5" y="47.5" width="177" height="25"/>
+                                        <rect key="frame" x="118.5" y="62.5" width="177" height="25"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="18"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -35,7 +33,7 @@
                                 <constraints>
                                     <constraint firstItem="vnk-3U-beD" firstAttribute="centerX" secondItem="zn4-qb-jwu" secondAttribute="centerX" id="1Zr-G9-aFz"/>
                                     <constraint firstAttribute="height" constant="100" id="GuD-Ao-ocf"/>
-                                    <constraint firstItem="vnk-3U-beD" firstAttribute="centerY" secondItem="zn4-qb-jwu" secondAttribute="centerY" constant="10" id="vce-UO-by7"/>
+                                    <constraint firstItem="vnk-3U-beD" firstAttribute="centerY" secondItem="zn4-qb-jwu" secondAttribute="centerY" constant="25" id="vce-UO-by7"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cXE-Ly-qkf" userLabel="bottomView">
@@ -54,7 +52,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="XL3-Uw-2yO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="041-GZ-3xR"/>
                             <constraint firstItem="XL3-Uw-2yO" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="2PO-vb-JK3"/>
@@ -83,6 +81,57 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
+        </scene>
+        <!--PopVC-->
+        <scene sceneID="iaV-DP-SD6">
+            <objects>
+                <viewController storyboardIdentifier="PopVC" id="nE2-NM-5xo" customClass="PopVC" customModule="MapIt" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="T4V-Hg-pXq">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nkJ-M4-SWf">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uwT-Co-oR6">
+                                <rect key="frame" x="57" y="827" width="300" height="35"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Double-Tap to dismiss" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="paj-Xp-HcP">
+                                        <rect key="frame" x="11" y="6" width="279" height="21"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="1EO-t9-JuC"/>
+                                    <constraint firstAttribute="trailing" secondItem="paj-Xp-HcP" secondAttribute="trailing" constant="10" id="2xx-Jq-gxJ"/>
+                                    <constraint firstAttribute="bottom" secondItem="paj-Xp-HcP" secondAttribute="bottom" constant="8" id="6sW-MQ-CQe"/>
+                                    <constraint firstItem="paj-Xp-HcP" firstAttribute="top" secondItem="uwT-Co-oR6" secondAttribute="top" constant="6" id="IZZ-4H-2cz"/>
+                                    <constraint firstAttribute="width" constant="300" id="ZW1-2E-ihc"/>
+                                    <constraint firstItem="paj-Xp-HcP" firstAttribute="leading" secondItem="uwT-Co-oR6" secondAttribute="leading" constant="11" id="va5-w7-JPx"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="nkJ-M4-SWf" firstAttribute="top" secondItem="T4V-Hg-pXq" secondAttribute="top" id="0BY-6n-yVh"/>
+                            <constraint firstItem="uwT-Co-oR6" firstAttribute="bottom" secondItem="81F-Is-1Of" secondAttribute="bottom" id="2BL-f6-RQD"/>
+                            <constraint firstItem="uwT-Co-oR6" firstAttribute="centerX" secondItem="T4V-Hg-pXq" secondAttribute="centerX" id="MUN-Ov-FkV"/>
+                            <constraint firstAttribute="bottom" secondItem="nkJ-M4-SWf" secondAttribute="bottom" id="UVN-OE-SOy"/>
+                            <constraint firstItem="nkJ-M4-SWf" firstAttribute="trailing" secondItem="81F-Is-1Of" secondAttribute="trailing" id="ike-Ce-c1M"/>
+                            <constraint firstItem="nkJ-M4-SWf" firstAttribute="leading" secondItem="81F-Is-1Of" secondAttribute="leading" id="nF2-8g-vKJ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="81F-Is-1Of"/>
+                    </view>
+                    <connections>
+                        <outlet property="popImageView" destination="nkJ-M4-SWf" id="SLd-EH-OXv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GMj-Fa-C5x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="792.75362318840587" y="137.94642857142856"/>
         </scene>
     </scenes>
     <resources>
